@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="main.js" defer></script>
     <title>ToDo App</title>
 </head>
 <body>
-    <main>
+    <main id="main-wrapper">
         <!-- INPUT FIELD -->
         <section id="input">
             <!-- INPUT FIELD START-->
@@ -22,12 +22,18 @@
             <!-- INPUT FIELD END -->
         </section>
         <!-- NOTES DIV -->
-        <section id="note-wrapper">
+        <section id="notes-wrapper">
         <!-- NOTES DIV START-->
-            <div id="note-box">
-                <div id="note-title"></div>
-                <div id="note-content"></div>
-                <div id="note"></div>
+            <div class="note-box">
+                <div class="note-title-wrapper">
+                    <div class="note-title">Title</div>
+                    <div class="note-delete-icon"></div>
+                </div>
+                <div class="note-content-wrapper">
+                    <div class="note" id="note-number-1">Note</div>
+                    <div class="note" id="note-number-2">Note 1</div>
+                    <div class="note" id="note-number-3">Note 2</div>
+                </div>
             </div>
         <!-- NOTES DIV END -->
         </section>

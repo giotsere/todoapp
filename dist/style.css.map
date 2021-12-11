@@ -1,0 +1,1 @@
+{"version":3,"file":"style.css","mappings":"AAAA,EACI,SACA,UACA,sBAGJ,cACI,aACA,qB","sources":["webpack://todoapp/./src/scss/style.scss"],"sourcesContent":["*{\r\n    margin:0;\r\n    padding:0;\r\n    box-sizing: border-box;\r\n}\r\n\r\n#main-wrapper{\r\n    display: flex;\r\n    background-color: red;\r\n}"],"names":[],"sourceRoot":""}
