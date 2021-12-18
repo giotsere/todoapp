@@ -5,6 +5,11 @@
           box-sizing: border-box;
 }
 
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: 1px;
+}
+
 #main-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15,8 +20,14 @@
           flex-direction: column;
 }
 
+#main-wrapper h1 {
+  text-align: center;
+  padding-top: 2rem;
+}
+
 #input {
   height: 200px;
+  margin-bottom: 25rem;
 }
 
 #input-box {
@@ -37,13 +48,14 @@
 #input-box #input-title,
 #input-box #input-note,
 #input-box #input-content {
-  width: 70%;
+  width: 20rem;
   overflow: auto;
-  padding: 1rem;
+  padding: 1rem 1rem 1.5rem 1rem;
   margin: 0.5rem;
   border-radius: 5px;
   border: 1px solid black;
   max-height: 200px;
+  outline: none;
 }
 
 #input-box #input-title p,
@@ -54,13 +66,49 @@
 
 #notes-wrapper {
   margin: auto;
-  padding-top: 20rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#notes-wrapper .note-box {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 20rem;
+  min-height: 15rem;
+  margin-bottom: 4rem;
+}
+
+#notes-wrapper .note-box .note-title-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+#notes-wrapper .note-box .note-title-wrapper .note-title {
+  font-weight: 700;
+}
+
+#notes-wrapper .note-box .note-title-wrapper .note-delete-icon {
+  cursor: pointer;
+}
+
+#notes-wrapper .note-box .note-content-wrapper {
+  padding: 1rem;
+}
+
+#notes-wrapper .note-box .note-content-wrapper .note {
+  padding-top: 1.2rem;
 }
 /*# sourceMappingURL=style.css.map */

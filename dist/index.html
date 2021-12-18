@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
+    <script src="https://kit.fontawesome.com/4bffab5979.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet"> 
     <title>ToDo App</title>
 </head>
 <body>
@@ -13,6 +17,7 @@
         <!-- INPUT FIELD -->
         <section id="input">
             <!-- INPUT FIELD START-->
+            <h1>ToDo App</h1>
             <div id="input-box">
                 <input type="text" id="input-title" placeholder="Title">
                 <input type="text" id="input-note" placeholder="Take a note...">
@@ -37,17 +42,42 @@
         <!-- NOTES DIV -->
         <section id="notes-wrapper">
         <!-- NOTES DIV START-->
-            <div class="note-box">
+            <div class="note-box" id="note-box-number-1">
                 <div class="note-title-wrapper">
                     <div class="note-title">Title</div>
-                    <div class="note-delete-icon"></div>
+                    <div class="note-delete-icon"><i class="fas fa-trash-alt"></i></div>
                 </div>
                 <div class="note-content-wrapper">
-                    <div class="note" id="note-number-1">Note</div>
-                    <div class="note" id="note-number-2">Note 1</div>
-                    <div class="note" id="note-number-3">Note 2</div>
+                    <div class="note" id="note-1">Note</div>
+                    <div class="note" id="note-2">Note 1</div>
+                    <div class="note" id="note-3">Note 2</div>
                 </div>
             </div>
+
+            <div class="note-box" id="note-box-number-2">
+                <div class="note-title-wrapper">
+                    <div class="note-title">Title</div>
+                    <div class="note-delete-icon"><i class="fas fa-trash-alt"></i></div>
+                </div>
+                <div class="note-content-wrapper">
+                    <div class="note" id="note-1">Note</div>
+                    <div class="note" id="note-2">Note 1</div>
+                    <div class="note" id="note-3">Note 2</div>
+                </div>
+            </div>
+
+            <div class="note-box" id="note-box-number-2">
+                <div class="note-title-wrapper">
+                    <div class="note-title">Title</div>
+                    <div class="note-delete-icon"><i class="fas fa-trash-alt"></i></div>
+                </div>
+                <div class="note-content-wrapper">
+                    <div class="note" id="note-1">Note</div>
+                    <div class="note" id="note-2">Note 1</div>
+                    <div class="note" id="note-3">Note 2</div>
+                </div>
+            </div>
+
         <!-- NOTES DIV END -->
         </section>
         <!-- END-->

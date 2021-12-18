@@ -4,13 +4,25 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 1px;
+}
+
+
 #main-wrapper{
     display: flex;
     flex-direction: column;
+
+    h1{
+        text-align: center;
+        padding-top: 2rem;
+    }
 }
 
 #input{
     height: 200px;
+    margin-bottom: 25rem;
 }
 
 #input-box{
@@ -23,13 +35,14 @@
     #input-title,
     #input-note,
     #input-content{
-        width: 70%;
+        width: 20rem;
         overflow: auto;
-        padding: 1rem;
+        padding: 1rem 1rem 1.5rem 1rem;
         margin: 0.5rem;
         border-radius: 5px;
         border: 1px solid black;
         max-height: 200px;
+        outline: none;
 
         p{
             margin-top: 1rem;
@@ -39,18 +52,35 @@
 
 #notes-wrapper{
     margin: auto;
-    padding-top: 20rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
 
     .note-box{
-
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 20rem;
+        min-height: 15rem;
+        margin-bottom: 4rem;
         .note-title-wrapper{
-            .note-title{}
-            .note-delete-icon{}
+            position: relative;
+            display: flex;
+            padding: 1rem;
+            justify-content: space-between;
+            border-bottom: 1px solid black;
+            width: 100%;
+            .note-title{
+                font-weight: 700;
+            }
+            .note-delete-icon{
+                cursor: pointer;
+            }
         }
         .note-content-wrapper{
-            .note{}
+            padding: 1rem;
+            .note{
+                padding-top: 1.2rem;
+            }
         }
     }
 }
