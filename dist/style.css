@@ -1,3 +1,3 @@
-*{margin:0;padding:0;box-sizing:border-box}#main-wrapper{display:flex;background-color:red}
+*{margin:0;padding:0;box-sizing:border-box}#main-wrapper{display:flex;flex-direction:column}#input{height:200px}#input-box{overflow:auto;display:flex;flex-direction:column;align-items:center;margin-top:50px}#input-box #input-title,#input-box #input-note,#input-box #input-content{width:70%;overflow:auto;padding:1rem;margin:.5rem;border-radius:5px;border:1px solid #000;max-height:200px}#input-box #input-title p,#input-box #input-note p,#input-box #input-content p{margin-top:1rem}#notes-wrapper{margin:auto;padding-top:20rem;display:flex;flex-direction:row}
 
 /*# sourceMappingURL=style.css.map*/

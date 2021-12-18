@@ -6,5 +6,52 @@
 
 #main-wrapper{
     display: flex;
-    background-color: red;
+    flex-direction: column;
 }
+
+#input{
+    height: 200px;
+}
+
+#input-box{
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+
+    #input-title,
+    #input-note,
+    #input-content{
+        width: 70%;
+        overflow: auto;
+        padding: 1rem;
+        margin: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid black;
+        max-height: 200px;
+
+        p{
+            margin-top: 1rem;
+        }
+    }
+}
+
+#notes-wrapper{
+    margin: auto;
+    padding-top: 20rem;
+    display: flex;
+    flex-direction: row;
+
+    .note-box{
+
+        .note-title-wrapper{
+            .note-title{}
+            .note-delete-icon{}
+        }
+        .note-content-wrapper{
+            .note{}
+        }
+    }
+}
+

@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#main-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#input {
+  height: 200px;
+}
+
+#input-box {
+  overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+}
+
+#input-box #input-title,
+#input-box #input-note,
+#input-box #input-content {
+  width: 70%;
+  overflow: auto;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  max-height: 200px;
+}
+
+#input-box #input-title p,
+#input-box #input-note p,
+#input-box #input-content p {
+  margin-top: 1rem;
+}
+
+#notes-wrapper {
+  margin: auto;
+  padding-top: 20rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+/*# sourceMappingURL=style.css.map */
