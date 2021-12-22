@@ -1,2 +1,2 @@
-(()=>{"use strict";document.getElementById("input"),document.getElementById("input-box"),document.getElementById("input-title"),document.getElementById("input-note"),document.getElementById("input-content")})();
+(()=>{"use strict";document.getElementById("input"),document.getElementById("input-box"),document.getElementById("input-title");const e=document.getElementById("input-note"),t=document.getElementById("input-content");e.addEventListener("keypress",(n=>{"Enter"===n.key&&function(){if(""!=e.value){const n=e.value,u=document.createElement("p");u.innerText=n,t.appendChild(u),e.value=""}}()}))})();
 //# sourceMappingURL=bundle.js.map
