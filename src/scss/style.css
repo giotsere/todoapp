@@ -26,12 +26,8 @@ body {
 }
 
 #input {
-  height: 200px;
+  min-height: 350px;
   margin-bottom: 25rem;
-}
-
-#input-box {
-  overflow: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,7 +38,15 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#input-box {
+  overflow: auto;
   margin-top: 50px;
+  width: 21rem;
 }
 
 #input-box #input-title,
@@ -62,6 +66,10 @@ body {
 #input-box #input-note p,
 #input-box #input-content p {
   margin-top: 1rem;
+}
+
+#input-box #input-content {
+  display: none;
 }
 
 #notes-wrapper {
