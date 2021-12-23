@@ -21,16 +21,18 @@ body{
 }
 
 #input{
-    height: 200px;
+    min-height: 350px;
     margin-bottom: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #input-box{
     overflow: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-top: 50px;
+    width: 21rem;
 
     #input-title,
     #input-note,
@@ -47,6 +49,10 @@ body{
         p{
             margin-top: 1rem;
         }
+    }
+
+    #input-content{
+        display: none;
     }
 }
 
