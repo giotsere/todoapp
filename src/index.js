@@ -15,8 +15,23 @@ const notesWrapper = document.getElementById("notes-wrapper");
 // const notesWrapper = document.getElementById("note-content-wrapper");
 
 const LOCAL_STORAGE_KEY = "todo.tasks";
-let tasks = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
-console.log(tasks);
+let tasks = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [
+    [
+        {
+            "Title" : "Example Title",
+        },
+        [{
+            "Note" : "Example Note, incomplete",
+            "Status": "incomplete"
+        },
+        {
+            "Note" : "Example Note, complete",
+            "Status": "complete"
+        },
+        ]
+    ]
+];
+renderNotes();
 
 inputNote.addEventListener("keypress",(e) => {
     if ('Enter' === e.key){
@@ -76,59 +91,65 @@ function addToLocalStorage(){
     inputNote.innerText = '';
     inputContent.innerText = '';
     inputContent.style.display = "none";
+
+    renderNotes();
 }
 
 //Adding the prepared notes to the Note Box
-function addNote(){
-    //create every div / subdiv
-    const divNoteBox = document.createElement('div');
-    divNoteBox.classList.add("note-box");
+function renderNotes(){
+    clearNotesWrapper()
+    tasks.forEach(task => {
+        const title = task[0].Title;
 
-    const divNoteTitleWrapper = document.createElement('div');
-    divNoteTitleWrapper.classList.add("note-title-wrapper");
+        //create every div / subdiv
+        const divNoteBox = document.createElement('div');
+        divNoteBox.classList.add("note-box");
 
-    const divNoteTitle = document.createElement('div');
-    divNoteTitle.classList.add("note-title");
-    divNoteTitle.innerText = inputTitle.value;
+        const divNoteTitleWrapper = document.createElement('div');
+        divNoteTitleWrapper.classList.add("note-title-wrapper");
 
-    const divNoteDeleteIcon = document.createElement('div');
-    divNoteDeleteIcon.classList.add("note-delete-icon");
+        const divNoteTitle = document.createElement('div');
+        divNoteTitle.classList.add("note-title");
+        divNoteTitle.innerText = title;
 
-    const deleteIcon = document.createElement('i')
-    deleteIcon.classList.add("fas");
-    deleteIcon.classList.add("fa-trash-alt");
+        const divNoteDeleteIcon = document.createElement('div');
+        divNoteDeleteIcon.classList.add("note-delete-icon");
 
-    const divNoteContentWrapper = document.createElement('div');
-    divNoteContentWrapper.classList.add("note-content-wrapper");
+        const deleteIcon = document.createElement('i')
+        deleteIcon.classList.add("fas");
+        deleteIcon.classList.add("fa-trash-alt");
 
-    //append divs to each other
+        const divNoteContentWrapper = document.createElement('div');
+        divNoteContentWrapper.classList.add("note-content-wrapper");
 
-    divNoteBox.appendChild(divNoteTitleWrapper);
-    divNoteDeleteIcon.appendChild(deleteIcon);
-    divNoteTitleWrapper.appendChild(divNoteTitle);
-    divNoteTitleWrapper.appendChild(divNoteDeleteIcon);
-    divNoteBox.appendChild(divNoteContentWrapper);
-
-    //append notes
-    const inputContentNotes = document.querySelectorAll('.input-content-note');
+        //append divs to each other
+        divNoteBox.appendChild(divNoteTitleWrapper);
+        divNoteDeleteIcon.appendChild(deleteIcon);
+        divNoteTitleWrapper.appendChild(divNoteTitle);
+        divNoteTitleWrapper.appendChild(divNoteDeleteIcon);
+        divNoteBox.appendChild(divNoteContentWrapper);
+        
+        task[1].forEach(item => {
+            const divNote = document.createElement('div');
+            divNote.classList.add("note");
+            divNote.innerText = item.Note;
+            divNote.addEventListener("click", () => {
+                divNote.classList.toggle("complete");
+            })
+            
+            if(item.Status === "complete"){
+                divNote.classList.add("complete");
+            }
     
-    for(let i = 0; i < inputContentNotes.length; i++) {
-        const divNote = document.createElement('div');
-        divNote.classList.add("note");
-        divNote.setAttribute("id", i+1);
-        divNote.innerText = inputContentNotes[i].innerText;
-
-        divNoteContentWrapper.appendChild(divNote);
-    }
-
-    // append note box to wrapper div, clear input fields
-    notesWrapper.appendChild(divNoteBox);
-
-    inputTitle.innerText = '';
-    inputNote.innerText = '';
-    inputContent.innerText = '';
-    inputContent.style.display = "none";
+            divNoteContentWrapper.appendChild(divNote);
+        });
+            
+        // append note box to wrapper div, clear input fields
+        notesWrapper.appendChild(divNoteBox);
+    })
 }
 
 
-
+function clearNotesWrapper(){
+    notesWrapper.innerText = '';
+}

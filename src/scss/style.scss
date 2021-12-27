@@ -71,6 +71,7 @@ body{
             position: relative;
             display: flex;
             padding: 1rem;
+            margin-bottom: 1.5rem;
             justify-content: space-between;
             border-bottom: 1px solid black;
             width: 100%;
@@ -82,9 +83,18 @@ body{
             }
         }
         .note-content-wrapper{
-            padding: 1rem;
+            word-wrap: break-word;
+            margin: 1rem;
+            max-height: 250px;
+            overflow: auto;
             .note{
-                padding-top: 1.2rem;
+                margin-bottom: 1rem;
+                cursor: pointer;
+            }
+            
+            .complete{
+                text-decoration: line-through;
+                color: grey;
             }
         }
     }
