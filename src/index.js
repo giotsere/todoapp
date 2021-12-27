@@ -1,5 +1,6 @@
 import "./scss/style.scss"
 
+
 const input = document.getElementById("input");
 const inputBox = document.getElementById("input-box");
 const inputTitle = document.getElementById("input-title");
@@ -13,6 +14,9 @@ const notesWrapper = document.getElementById("notes-wrapper");
 // const notesWrapper = document.getElementById("note-delete-icon");
 // const notesWrapper = document.getElementById("note-content-wrapper");
 
+const LOCAL_STORAGE_KEY = "todo.tasks";
+let tasks = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+console.log(tasks);
 
 inputNote.addEventListener("keypress",(e) => {
     if ('Enter' === e.key){
@@ -23,12 +27,12 @@ inputNote.addEventListener("keypress",(e) => {
 document.addEventListener("click",(e) => {
     if(!(inputBox.contains(e.target))){
         if(inputContent.childElementCount != 0){
-            addNote();
+            addToLocalStorage()
         }
     }
 })
 
-
+//Prepare the notes before adding them to the finalized Note Box
 function prepareNotes(){
     if(inputNote.value != ''){
         const note = inputNote.value;
@@ -43,6 +47,38 @@ function prepareNotes(){
 }
 
 
+function addToLocalStorage(){
+    const title = inputTitle.value;
+    const notesArr = [];
+    const inputContentNotes = document.querySelectorAll('.input-content-note');
+
+    inputContentNotes.forEach(item => {
+        let note = item.innerText;
+        let notes = {
+            "Note" : note,
+            "Status": "incomplete"
+        }
+
+        notesArr.push(notes);
+    });
+    
+    const task = [
+        {
+            "Title" : title,
+        },
+        notesArr
+    ];
+
+    tasks.push(task);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks));
+
+    inputTitle.value = '';
+    inputNote.innerText = '';
+    inputContent.innerText = '';
+    inputContent.style.display = "none";
+}
+
+//Adding the prepared notes to the Note Box
 function addNote(){
     //create every div / subdiv
     const divNoteBox = document.createElement('div');
@@ -87,8 +123,12 @@ function addNote(){
 
     // append note box to wrapper div, clear input fields
     notesWrapper.appendChild(divNoteBox);
+
     inputTitle.innerText = '';
     inputNote.innerText = '';
     inputContent.innerText = '';
     inputContent.style.display = "none";
 }
+
+
+
