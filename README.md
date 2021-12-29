@@ -15,4 +15,4 @@ A Vanilla JavaScript ToDo app
 
 ## Demo
 
-![Todo App Demo](assets\gif\todoapp-example.gif)
+![Todo App Demo](assets/gif/todoapp-example.gif)
