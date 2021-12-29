@@ -1,5 +1,5 @@
 # ToDo App
-A Vanilla JavaScript ToDo app
+A Vanilla JavaScript ToDo App
 
 ## Features
 - Add Note with Title and Todos
