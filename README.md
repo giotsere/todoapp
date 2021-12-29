@@ -7,4 +7,12 @@ A Vanilla JavaScript ToDo app
 - Local Storage
 - Responsive
 
-## Example
+## Usage
+
+1. Add Title
+2. Add a todo and press Enter to clear the input field for the next todo
+3. Click anywhere outside of the input boxes to add the note to your list
+
+## Demo
+
+![Todo App Demo](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
