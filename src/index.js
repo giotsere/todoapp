@@ -11,7 +11,6 @@ const notesWrapper = document.getElementById("notes-wrapper");
 // const notesWrapper = document.getElementById("note-box");
 // const notesWrapper = document.getElementById("note-title-wrapper");
 // const notesWrapper = document.getElementById("note-title");
-// const notesWrapper = document.getElementById("note-delete-icon");
 // const notesWrapper = document.getElementById("note-content-wrapper");
 
 const LOCAL_STORAGE_KEY = "todo.tasks";
@@ -31,6 +30,9 @@ let tasks = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [
         ]
     ]
 ];
+
+let id = 0;
+
 renderNotes();
 
 inputNote.addEventListener("keypress",(e) => {
@@ -97,14 +99,15 @@ function addToLocalStorage(){
 
 //Adding the prepared notes to the Note Box
 function renderNotes(){
-    clearNotesWrapper()
+    clearNotesWrapper();
     tasks.forEach(task => {
         const title = task[0].Title;
 
         //create every div / subdiv
         const divNoteBox = document.createElement('div');
         divNoteBox.classList.add("note-box");
-
+        divNoteBox.setAttribute("id",id++);
+        
         const divNoteTitleWrapper = document.createElement('div');
         divNoteTitleWrapper.classList.add("note-title-wrapper");
 
@@ -114,6 +117,7 @@ function renderNotes(){
 
         const divNoteDeleteIcon = document.createElement('div');
         divNoteDeleteIcon.classList.add("note-delete-icon");
+        
 
         const deleteIcon = document.createElement('i')
         deleteIcon.classList.add("fas");
@@ -137,6 +141,7 @@ function renderNotes(){
                 divNote.classList.toggle("complete");
             })
             
+
             if(item.Status === "complete"){
                 divNote.classList.add("complete");
             }
@@ -146,10 +151,24 @@ function renderNotes(){
             
         // append note box to wrapper div, clear input fields
         notesWrapper.appendChild(divNoteBox);
+        deleteNote();
     })
 }
 
 
 function clearNotesWrapper(){
     notesWrapper.innerText = '';
+}
+
+function deleteNote(){
+
+    const deleteIcon = document.querySelectorAll(".note-delete-icon");
+    deleteIcon.forEach(icon => {
+        icon.addEventListener("click", () => {
+            const index = icon.parentElement.parentElement.id;
+            tasks.splice(tasks.indexOf(index), 1);
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks));
+            renderNotes();
+        });
+    });
 }
